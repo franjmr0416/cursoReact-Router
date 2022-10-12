@@ -1,11 +1,4 @@
-import { Routes, Route, Link, useMatch } from 'react-router-dom';
-
-const Proyecto = () => {
-  const match = useMatch('/portafolio/:proyecto_id');
-  const { proyecto_id } = match.params;
-
-  return <h1>Proyecto {proyecto_id}</h1>;
-};
+import { Routes, Route, Link } from 'react-router-dom';
 
 const Portafolio = () => {
   return (
@@ -13,15 +6,16 @@ const Portafolio = () => {
       <h1>Portafolio</h1>
       <ul>
         <li>
-          <Link to={'proyecto-1'}>Proyecto 1</Link>
+          <Link to={'/portafolio/proyecto-1'}>Proyecto 1</Link>
         </li>
         <li>
-          <Link to={'proyecto-2'}>Proyecto 2</Link>
+          <Link to={'/portafolio/proyecto-2'}>Proyecto 2</Link>
         </li>
       </ul>
       <div>
         <Routes>
-          <Route path={':proyecto_id'} element={<Proyecto />} />
+          <Route path={'proyecto-1'} element={<h2>Proyecto 1</h2>} />
+          <Route path={'proyecto-2'} element={<h2>Proyecto 2</h2>} />
         </Routes>
       </div>
     </div>
